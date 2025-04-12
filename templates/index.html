@@ -29,34 +29,3 @@
     </ul>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>To-Do App</title>
-    <style>
-        .done {
-            text-decoration: line-through;
-            color: gray;
-        }
-    </style>
-</head>
-<body>
-    <h1>To-Do List</h1>
-    <form method="post" action="/add">
-        <input type="text" name="task" placeholder="Enter new task" required>
-        <button type="submit">Add</button>
-    </form>
-    <ul>
-        {% for task in tasks %}
-            <li>
-                <form method="get" action="/toggle/{{ loop.index0 }}" style="display:inline;">
-                    <button type="submit">{{ '✅' if task.done else '⬜' }}</button>
-                </form>
-                <span class="{{ 'done' if task.done else '' }}">{{ task.text }}</span>
-                <a href="/delete/{{ loop.index0 }}">Delete</a>
-            </li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
