@@ -13,13 +13,7 @@
     </form>
     <ul>
         {% for task in tasks %}
-            <li>
-                <form method="get" action="/toggle/{{ loop.index0 }}" style="display:inline;">
-                    <button type="submit">{{ '✅' if task.done else '⬜' }}</button>
-                </form>
-                <span class="{{ 'done' if task.done else '' }}">{{ task.text }}</span>
-                <a href="/delete/{{ loop.index0 }}">Delete</a>
-            </li>
+            <li>{{ task }} <a href="/delete/{{ loop.index0 }}">Delete</a></li>
         {% endfor %}
     </ul>
 </body>
