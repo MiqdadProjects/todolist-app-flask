@@ -20,8 +20,3 @@ def delete(task_id):
         tasks.pop(task_id)
     return redirect(url_for('index'))
 
-@app.route('/toggle/<int:task_id>')
-def toggle(task_id):
-    if 0 <= task_id < len(tasks):
-        tasks[task_id]['done'] = not tasks[task_id]['done']
-    return redirect(url_for('index'))
