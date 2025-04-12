@@ -9,9 +9,9 @@ def index():
 
 @app.route('/add', methods=['POST'])
 def add():
-    task_text = request.form.get('task')
-    if task_text:
-        tasks.append({'text': task_text, 'done': False})
+    task = request.form.get('task')
+    if task:
+        tasks.append(task)
     return redirect(url_for('index'))
 
 @app.route('/delete/<int:task_id>')
@@ -19,4 +19,3 @@ def delete(task_id):
     if 0 <= task_id < len(tasks):
         tasks.pop(task_id)
     return redirect(url_for('index'))
-
