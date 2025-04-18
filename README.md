@@ -29,7 +29,20 @@ A simple to-do list web application built using Flask.
     pip install -r requirements.txt
     ```
 
-4. Run the app:
+4. (Optional) Add a `.flaskenv` file for easier development:
+
+    Create a file named `.flaskenv` and add:
+    ```env
+    FLASK_APP=app
+    FLASK_ENV=development
+    ```
+
+    Now you can run the app with:
+    ```bash
+    flask run
+    ```
+
+5. Or, run directly with Python:
     ```bash
     python app.py
     ```
