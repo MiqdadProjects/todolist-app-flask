@@ -1,17 +1,63 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 400px;
     margin: 50px auto;
     text-align: center;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    color: #333;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
 }
 
 form input {
     padding: 10px;
     width: 70%;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 8px #007bff33;
 }
 
 form button {
-    padding: 10px;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #ff6f61, #ff9472);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+form button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 111, 97, 0.4);
+}
+
+form button::after {
+    content: "🚀";
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    opacity: 0;
+    transition: left 0.4s ease, opacity 0.4s ease;
+}
+
+form button:hover::after {
+    left: 10px;
+    opacity: 1;
 }
 
 ul {
@@ -21,4 +67,18 @@ ul {
 
 li {
     margin: 10px 0;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+li:hover {
+    transform: translateY(-4px);
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
