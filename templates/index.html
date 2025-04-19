@@ -3,23 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>To-Do App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>🚀 My To-Do List</h1>
-    <form method="post" action="/add">
-        <input type="text" name="task" placeholder="Enter new task if required" required>
-        <button type="submit">Add</button>
+
+    <form method="post" action="/add" autocomplete="off">
+        <input type="text" name="task" placeholder="Enter a new task..." required>
+        <button type="submit">Add Task</button>
     </form>
-    <ul>
-        {% for task in tasks %}
-            <li>
-                {{ task }}
-                <a href="/delete/{{ loop.index0 }}" class="delete-link">🗑️ Delete</a>
-            </li>
-        {% endfor %}
-    </ul>
+
+    {% if tasks %}
+        <ul>
+            {% for task in tasks %}
+                <li>
+                    <span>{{ task }}</span>
+                    <a href="/delete/{{ loop.index0 }}" class="delete-link" title="Remove this task">🗑️</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No tasks yet. Add one above! 😊</p>
+    {% endif %}
 </body>
 </html>
