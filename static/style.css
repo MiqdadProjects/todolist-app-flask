@@ -1,84 +1,164 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    width: 400px;
-    margin: 50px auto;
-    text-align: center;
-    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-    color: #333;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1s ease-in-out;
-}
-
-form input {
-    padding: 10px;
-    width: 70%;
-    border: 2px solid #ccc;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-}
-
-form input:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 8px #007bff33;
-}
-
-form button {
-    padding: 10px 20px;
-    background: linear-gradient(45deg, #ff6f61, #ff9472);
-    border: none;
-    border-radius: 6px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    margin-left: 10px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s ease;
-}
-
-form button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(255, 111, 97, 0.4);
-}
-
-form button::after {
-    content: "🚀";
-    position: absolute;
-    left: -30px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.2em;
-    opacity: 0;
-    transition: left 0.4s ease, opacity 0.4s ease;
-}
-
-form button:hover::after {
-    left: 10px;
-    opacity: 1;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin: 10px 0;
-    background: white;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-li:hover {
-    transform: translateY(-4px);
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(-20px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
+/* === Animated Gradient Background === */
+@keyframes gradientBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 420px;
+      margin: 60px auto;
+      padding: 30px 25px;
+      text-align: center;
+      color: #ddd;
+      border-radius: 16px;
+      box-shadow:
+        0 0 20px rgba(128, 0, 128, 0.6),
+        inset 0 0 40px rgba(255, 255, 255, 0.1);
+      
+      /* Animated gradient background */
+      background: linear-gradient(270deg, #000000, #434343, #c0c0c0, #6a0dad);
+      background-size: 800% 800%;
+      animation: gradientBG 20s ease infinite;
+      
+      /* Smooth fade-in */
+      animation-fill-mode: forwards;
+  }
+  
+  /* Heading */
+  h1 {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 8px #6a0dad, 0 0 15px #c0c0c0;
+  }
+  
+  /* Form input */
+  form input {
+      padding: 14px 16px;
+      width: 70%;
+      border: 2px solid #6a0dad;
+      border-radius: 8px;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      color: #eee;
+      transition: all 0.3s ease;
+      box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.15);
+  }
+  
+  form input::placeholder {
+      color: #ccc;
+  }
+  
+  form input:focus {
+      outline: none;
+      border-color: #c0c0c0;
+      box-shadow: 0 0 12px #6a0dad;
+      background: rgba(255, 255, 255, 0.15);
+  }
+  
+  /* Add Task button */
+  form button {
+      padding: 14px 26px;
+      background: linear-gradient(45deg, #6a0dad, #c0c0c0);
+      border: none;
+      border-radius: 8px;
+      color: #000;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-left: 12px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 12px #6a0dad;
+      transition: all 0.4s ease;
+  }
+  
+  form button:hover {
+      background: linear-gradient(45deg, #c0c0c0, #6a0dad);
+      color: #fff;
+      box-shadow: 0 0 20px #c0c0c0, 0 0 30px #6a0dad;
+      transform: scale(1.08);
+  }
+  
+  form button::after {
+      content: "🚀";
+      position: absolute;
+      left: -30px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.3em;
+      opacity: 0;
+      transition: left 0.4s ease, opacity 0.4s ease;
+      color: #6a0dad;
+  }
+  
+  form button:hover::after {
+      left: 12px;
+      opacity: 1;
+  }
+  
+  /* Task list */
+  ul {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 30px;
+  }
+  
+  li {
+      margin: 12px 0;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 14px 18px;
+      border-radius: 12px;
+      box-shadow:
+        0 0 8px rgba(106, 13, 173, 0.5),
+        inset 0 0 6px rgba(255, 255, 255, 0.1);
+      color: #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  li:hover {
+      transform: translateY(-6px);
+      box-shadow:
+        0 0 16px rgba(106, 13, 173, 0.8),
+        inset 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Task text */
+  li span {
+      flex-grow: 1;
+      text-align: left;
+      padding-left: 8px;
+  }
+  
+  /* Delete link */
+  .delete-link {
+      color: #c0c0c0;
+      font-size: 1.3rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+  }
+  
+  .delete-link:hover {
+      color: #ff4d6d;
+      text-shadow: 0 0 8px #ff4d6d;
+  }
+  
+  /* Fade-in animation */
+  @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+  }
+  
