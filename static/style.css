@@ -1,4 +1,4 @@
-/* === Animated Gradient Background === */
+/* === Smooth Gradient Background Animation with Dark +  Light Colors === */
 @keyframes gradientBG {
     0% {
       background-position: 0% 50%;
@@ -12,153 +12,179 @@
   }
   
   body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      max-width: 420px;
-      margin: 60px auto;
-      padding: 30px 25px;
-      text-align: center;
-      color: #ddd;
-      border-radius: 16px;
-      box-shadow:
-        0 0 20px rgba(128, 0, 128, 0.6),
-        inset 0 0 40px rgba(255, 255, 255, 0.1);
-      
-      /* Animated gradient background */
-      background: linear-gradient(270deg, #000000, #434343, #c0c0c0, #6a0dad);
-      background-size: 800% 800%;
-      animation: gradientBG 20s ease infinite;
-      
-      /* Smooth fade-in */
-      animation-fill-mode: forwards;
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 420px;
+    margin: 60px auto;
+    padding: 30px 25px;
+    text-align: center;
+    color: #f0f0f0;
+    border-radius: 16px;
+    background: linear-gradient(
+      270deg,
+      #bd161e,       /* Dark color 1 */
+      #361546,       /* Dark color 2 */
+      #0c9271,       /* Light color 1 */
+      #04cf7bf8,     /* Light color 2 */
+      #f7a1c4,       /* Light pink */
+      #a8e6cf        /* Light green */
+    );
+    background-size: 1200% 1200%;
+    animation: gradientBG 30s ease infinite;
+    box-shadow:
+      0 8px 20px rgba(0, 0, 0, 0.25),
+      inset 0 0 40px rgba(255, 255, 255, 0.1);
+    overflow: hidden;
   }
   
-  /* Heading */
+  /* Dark translucent overlay for contrast */
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  /* Make sure content is above overlay */
+  body > * {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* === Heading === */
   h1 {
-      font-family: 'Roboto', sans-serif;
-      font-weight: 700;
-      font-size: 2.5rem;
-      margin-bottom: 30px;
-      text-shadow: 0 0 8px #6a0dad, 0 0 15px #c0c0c0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+    color: #f0f0f0;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
   }
   
-  /* Form input */
+  /* === Form Input === */
   form input {
-      padding: 14px 16px;
-      width: 70%;
-      border: 2px solid #6a0dad;
-      border-radius: 8px;
-      font-size: 1rem;
-      background: rgba(255, 255, 255, 0.1);
-      color: #eee;
-      transition: all 0.3s ease;
-      box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.15);
+    padding: 14px 18px;
+    width: 70%;
+    border: 2px solid #0c9271;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    background: rgba(0, 0, 0, 0.5); /* Darker background for better contrast */
+    color: #f0f0f0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(12, 146, 113, 0.6);
   }
   
   form input::placeholder {
-      color: #ccc;
+    color: #a0d6c8;
+    opacity: 1; /* Make placeholder fully visible */
   }
   
   form input:focus {
-      outline: none;
-      border-color: #c0c0c0;
-      box-shadow: 0 0 12px #6a0dad;
-      background: rgba(255, 255, 255, 0.15);
+    outline: none;
+    border-color: #04cf7f;
+    box-shadow: 0 0 15px #04cf7fbb;
+    background: rgba(0, 0, 0, 0.7);
   }
   
-  /* Add Task button */
+  /* === Add Task Button === */
   form button {
-      padding: 14px 26px;
-      background: linear-gradient(45deg, #6a0dad, #c0c0c0);
-      border: none;
-      border-radius: 8px;
-      color: #000;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      margin-left: 12px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 0 12px #6a0dad;
-      transition: all 0.4s ease;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #361546, #bd161e);
+    border: none;
+    border-radius: 10px;
+    color: #f0f0f0;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-left: 14px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(189, 22, 30, 0.7);
+    transition: all 0.4s ease;
   }
   
   form button:hover {
-      background: linear-gradient(45deg, #c0c0c0, #6a0dad);
-      color: #fff;
-      box-shadow: 0 0 20px #c0c0c0, 0 0 30px #6a0dad;
-      transform: scale(1.08);
+    background: linear-gradient(135deg, #bd161e, #361546);
+    box-shadow: 0 8px 25px rgba(189, 22, 30, 0.9);
+    transform: scale(1.07);
+    color: #d1f2eb;
   }
   
   form button::after {
-      content: "🚀";
-      position: absolute;
-      left: -30px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.3em;
-      opacity: 0;
-      transition: left 0.4s ease, opacity 0.4s ease;
-      color: #6a0dad;
+    content: "🚀";
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.4em;
+    opacity: 0;
+    transition: left 0.4s ease, opacity 0.4s ease;
+    color: #04cf7f;
   }
   
   form button:hover::after {
-      left: 12px;
-      opacity: 1;
+    left: 12px;
+    opacity: 1;
   }
   
-  /* Task list */
+  /* === Task List === */
   ul {
-      list-style-type: none;
-      padding: 0;
-      margin-top: 30px;
+    list-style-type: none;
+    padding: 0;
+    margin-top: 32px;
   }
   
   li {
-      margin: 12px 0;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 14px 18px;
-      border-radius: 12px;
-      box-shadow:
-        0 0 8px rgba(106, 13, 173, 0.5),
-        inset 0 0 6px rgba(255, 255, 255, 0.1);
-      color: #eee;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 1.1rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 14px 0;
+    background: rgba(0, 0, 0, 0.5); /* Darker background for tasks */
+    padding: 16px 22px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(54, 21, 70, 0.6);
+    color: #d1f2eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.15rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
   li:hover {
-      transform: translateY(-6px);
-      box-shadow:
-        0 0 16px rgba(106, 13, 173, 0.8),
-        inset 0 0 10px rgba(255, 255, 255, 0.2);
+    transform: translateY(-6px);
+    box-shadow: 0 8px 25px rgba(54, 21, 70, 0.9);
   }
   
   /* Task text */
   li span {
-      flex-grow: 1;
-      text-align: left;
-      padding-left: 8px;
+    flex-grow: 1;
+    text-align: left;
+    padding-left: 10px;
   }
   
   /* Delete link */
   .delete-link {
-      color: #c0c0c0;
-      font-size: 1.3rem;
-      text-decoration: none;
-      transition: color 0.3s ease;
+    color: #e57373;
+    font-size: 1.4rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
   }
   
   .delete-link:hover {
-      color: #ff4d6d;
-      text-shadow: 0 0 8px #ff4d6d;
+    color: #ff5252;
+    text-shadow: 0 0 8px #ff5252;
   }
   
-  /* Fade-in animation */
+  /* === Fade-in animation === */
   @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(-20px); }
-      100% { opacity: 1; transform: translateY(0); }
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
